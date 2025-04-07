@@ -477,7 +477,7 @@ func unstructuredToNamespace(obj *unstructured.Unstructured) (*v1.Namespace, err
 	return ns, err
 }
 
-var _ = SIGDescribe("OrderedNamespaceDeletion", func() {
+var _ = SIGDescribe(framework.WithFeatureGate(features.OrderedNamespaceDeletion), func() {
 	f := framework.NewDefaultFramework("namespacedeletion")
 	f.NamespacePodSecurityLevel = admissionapi.LevelBaseline
 
